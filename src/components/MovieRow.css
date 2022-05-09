@@ -1,0 +1,37 @@
+
+h2{
+    margin: 0px 0px 0px 30px;
+}
+.movieRow--listarea{
+    overflow-x: hidden; 
+    padding-left: 30px;
+}
+.movieRow--item{
+    display: inline-block;
+    width: 150px;
+    cursor: pointer;
+
+}
+.movieRow--item img{
+    width: 100%;
+    transform: scale(0.9);
+    transition: all ease 0.2s ;
+}
+.movieRow--item img:hover{
+    transform: scale(1);
+}
+/*
+Algumas anotações importante do css
+Overflow-x hidden
+ tudo o que passar da tela na horizontal vai ser cortado
+
+ display:inline-block um item ficar ao lado do outro
+movieRow--item img tem largura de 100% porque ele vai pegar o tamanho total
+da div Pai  .movieRow--item , que no caso está definido como 150px
+
+o transform: scale(0.9); 
+o .css dela é diminuido pra ocupar 90%
+
+ transform: scale(1); ele volta para o tamanho normal ocupando 100% da sua escala
+ transition: all ease 0.2s  o efeito tem um intervalo de 2s , não sendo aquila coisa grossa;
+ */
