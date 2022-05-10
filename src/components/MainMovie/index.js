@@ -1,5 +1,5 @@
 import React from "react";
-import './MainMovie.css'
+import './index.css'
 
 export default ({ item }) => {
     console.log('to no main movie');
