@@ -16,16 +16,18 @@ https://api.themoviedb.org/3/genre/movie/list?api_key=b08e208bca3aabde8e08ee5ca7
 export default {
     getHomeList: async () => {
         return [
-            {
-                slug: `Originais`,
-                title: `Originais da Netlfix`,
-                items: await basicFetch(`/discover/tv?with_network=459&api_key=${API_KEY}&language=pt-BR`),
-            },
+
             {
                 slug: `topRated`,
                 title: `Ação`,
                 items: await basicFetch(`/discover/movie?with_genres=28&api_key=${API_KEY}&language=pt-BR`),
             },
+            {
+                slug: `seriados`,
+                title: `Séries & Tv`,
+                items: await basicFetch(`/discover/tv?with_network=459&api_key=${API_KEY}&language=pt-BR`),
+            },
+
             {
 
                 slug: `topBrazil`,
@@ -45,15 +47,6 @@ export default {
                 items: await basicFetch(`/discover/movie?with_genres=16&api_key=${API_KEY}&language=pt-BR`),
             }
         ]
-        /*
-        {
-            "display_priority": 11,
-            "logo_path": "/oBoWstXQFHAlPApyxIQ31CIbNQk.jpg",
-            "provider_name": "Globoplay",
-            "provider_id": 307
-        },
-        */
-        // Para pegar generos de filme
 
     },
     getMovieInfo: async (movieId, type) => {
