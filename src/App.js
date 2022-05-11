@@ -6,7 +6,8 @@ import MainMovie from "./components/MainMovie";
 export default () => {
 
   const [movieList, setMovieList] = useState([]); // Salvar a lista com useState
-  const [mainMovieData, setMainMovieData] = useState([]);
+  const [mainMovieData, setMainMovieData] = useState(null);
+
   useEffect(() => {
     const loadAll = async () => {
       //Pegar toda a lista
@@ -14,13 +15,14 @@ export default () => {
 
       setMovieList(list);
       //Pegar o filme principal
-      let principalMovies = list.filter(i => i.slug === 'Originais');
+
+      let principalMovies = list.filter(i => i.slug === 'topRated');
       //Gera um numero aleatorio de acordo com tamanho do array da categoria de originais
-      // let randomNumber = Math.floor(Math.random() * (principalMovies[0].items.results.length - 1));
-      let choseMovie = principalMovies[0].items.results[13];
-      let chosedMovieCompleteInfo = await Tmdb.getMovieInfo(choseMovie.id, 'tv');
-      setMainMovieData(chosedMovieCompleteInfo);
-      console.log(chosedMovieCompleteInfo);
+      let randomNumber = Math.floor(Math.random() * (principalMovies[0].items.results.length - 1));
+      let choseMovie = principalMovies[0].items.results[randomNumber];
+      let chosedMovieCompleteInfo = await Tmdb.getMovieInfo(choseMovie.id, 'movie');
+      setMainMovieData(chosedMovieCompleteInfo)
+
 
     }
     loadAll();
@@ -28,11 +30,16 @@ export default () => {
 
   return (
     <div className="mainPage">
+
       {
-        mainMovieData &&
-        <MainMovie item={mainMovieData} />
+        mainMovieData != null ?
+          <MainMovie item={mainMovieData} />
+          : ' ...Carregando'
+
       }
-      <MainMovie />
+
+
+
       <section className="lists">
         {movieList.map((item, key) => (
           <MovieRow title={item.title} items={item.items} key={key} />
