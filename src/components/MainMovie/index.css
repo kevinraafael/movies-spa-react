@@ -1,0 +1,39 @@
+.MainMovie{
+    height: 100vh;
+    
+}
+
+.GradientMovie{
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to top, #111 10%,transparent 90%);
+}
+.MainContainer{
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 30px;
+    text-overflow: ellipsis;
+}
+.FontsContainer{
+    margin-top: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.TitleFont{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.DescriptionFont{
+    font-size: 18px;
+    width: 30%;
+    margin-bottom: 5%;
+ }
+/*
+Inhrit 
+herda o tamanho do item anterior
+no caso Main Movie
+*/

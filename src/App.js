@@ -38,8 +38,6 @@ export default () => {
 
       }
 
-
-
       <section className="lists">
         {movieList.map((item, key) => (
           <MovieRow title={item.title} items={item.items} key={key} />
